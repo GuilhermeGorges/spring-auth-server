@@ -1,11 +1,11 @@
 version: '3.3'
 
 networks:
-  aw-network:
+  auth-network:
     driver: bridge
 
 volumes:
-  aw-mysql-volume:
+  auth-mysql-volume:
 
 services:
   mysql:
@@ -20,6 +20,6 @@ services:
     ports:
       - "3307:3306"
     networks:
-      - aw-network
+      - auth-network
     volumes:
       - aw-mysql-volume:/var/lib/mysql
