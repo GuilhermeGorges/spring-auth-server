@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/user?createDatabaseIfNotExist=true&serverTimezone=UTC
+    password:
+  jpa:
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: none
+  session:
+    store-type: jdbc
+    jdbc:
+      initialize-schema: always
+server:
+  port: 6062
+
+gui:
+  auth:
+    provider-uri: 'http://localhost:6062'
+    jks:
+      keypass: 654321
+      storepass: 654321
+      alias: gui-auth
+      path: keystore/gui-auth.jks

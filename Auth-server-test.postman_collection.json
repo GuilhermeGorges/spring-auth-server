@@ -1,0 +1,655 @@
+{
+	"info": {
+		"_postman_id": "47fbb88e-3ddd-4245-ada3-e9e6b1732339",
+		"name": "Auth-server-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16987409",
+		"_collection_link": "https://canthaveateam.postman.co/workspace/Team-Workspace~dadd1bd3-1a36-4d13-84f0-08c1a069e141/collection/16987409-47fbb88e-3ddd-4245-ada3-e9e6b1732339?action=share&source=collection_link&creator=16987409"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQjUzI1NiI6IjhFdU84S0djbnFnaGxGcHdhbUlybHpLRXhEcHFKeGpHVkRNNzByUFhydVkiLCJraWQiOiJhd2Jsb2ciLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhd3VzZXIiLCJhdWQiOiJhd3VzZXIiLCJuYmYiOjE2NTI4MTc3NzMsInNjb3BlIjpbInVzZXJzOnJlYWQiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjgwODIiLCJleHAiOjE2NTI4MTgwNzMsImlhdCI6MTY1MjgxNzc3M30.c9cPWl-3nEG7991Epv9vfDbVr9Pb1BYIC9SASPaSllA4NUvo2SdjO03N6q6GyGvR1MQV_53T1vFXix8C7y0fVmB6nlSzrQcySY8uGAyKZzp5eDJMQsN2F1tW6nHuPK3ycHQQNeILIHE6PDjpXk1gFAG_b8Q7dIthY4PG_ITD58XqXv_1mKM5A8w03AqQO2kRiZylj6_g5gKnEJNcrnGpUc9dyxJt2kkS3L7BXPpluuF-GiuqIieeFCgX9mGEPBaMakYfaLFFdOIzrIFDXyBZ6jNuFoPLCJYDtEmP3dFSb0dH1327Wuzbn2h7sVttKTdjkRnPxAy9MiZousiGOturcA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"novoadmin@email.com\",\n    \"name\": \"Novo Admin\",\n    \"password\": \"123456\",\n    \"type\": \"ADMIN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:6060/users",
+							"host": [
+								"localhost"
+							],
+							"port": "6060",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQjUzI1NiI6IjhFdU84S0djbnFnaGxGcHdhbUlybHpLRXhEcHFKeGpHVkRNNzByUFhydVkiLCJraWQiOiJhd2Jsb2ciLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhd3VzZXIiLCJhdWQiOiJhd3VzZXIiLCJuYmYiOjE2NTI4MTc3NzMsInNjb3BlIjpbInVzZXJzOnJlYWQiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjgwODIiLCJleHAiOjE2NTI4MTgwNzMsImlhdCI6MTY1MjgxNzc3M30.c9cPWl-3nEG7991Epv9vfDbVr9Pb1BYIC9SASPaSllA4NUvo2SdjO03N6q6GyGvR1MQV_53T1vFXix8C7y0fVmB6nlSzrQcySY8uGAyKZzp5eDJMQsN2F1tW6nHuPK3ycHQQNeILIHE6PDjpXk1gFAG_b8Q7dIthY4PG_ITD58XqXv_1mKM5A8w03AqQO2kRiZylj6_g5gKnEJNcrnGpUc9dyxJt2kkS3L7BXPpluuF-GiuqIieeFCgX9mGEPBaMakYfaLFFdOIzrIFDXyBZ6jNuFoPLCJYDtEmP3dFSb0dH1327Wuzbn2h7sVttKTdjkRnPxAy9MiZousiGOturcA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:6060/users",
+							"host": [
+								"localhost"
+							],
+							"port": "6060",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:6060/users/:userId",
+							"host": [
+								"localhost"
+							],
+							"port": "6060",
+							"path": [
+								"users",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "My User",
+			"item": [
+				{
+					"name": "My User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQjUzI1NiI6Ing4d2EwemFiY1luVUNOWlFOZVhfRjJjalI4eXd0UUpfSVRkcXBqTjFUSVEiLCJraWQiOiJndWktYXV0aCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkBlbWFpbC5jb20iLCJhdWQiOiJndWktYWMtYXV0aCIsIm5iZiI6MTY5MzU3NDQ3NSwidXNlcl9pZCI6IjEiLCJzY29wZSI6WyJteXVzZXI6cmVhZCIsInBvc3RzOndyaXRlIiwibXl1c2VyOndyaXRlIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjA2MiIsInVzZXJfZnVsbG5hbWUiOiJBbGV4IFNpbHZhIiwiZXhwIjoxNjkzNTc4MDc1LCJpYXQiOjE2OTM1NzQ0NzUsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXX0.nHXQHHQvWi8rGQ_eYa_oUROTwxR4ExXIiFThj793eWkPoA_q1YIncVzg_fwpd1OSjGTE1YQdB2D-KKuRgfs-kgPgAlne80OXEex9CIesrCUpDIdtjciHy-5RVJowkOZ4eYVhltCZ0FoaBR047tEmElkSNsDk7KkvkpC34cTy_jyT8nn_k6ikBnvPb0vda6AtWVSwz1W6NMtn_E29KO74SN77lnkVZ_kiCTrF1EycSfniL53uOU-WRtWV_Vo4SACwRUononUGJQHe1TECVlBmU4s1h6qP-vs9O11ygTnrYxdDbM4Eyl10xX-nMKNe6KFLvy9zDahhijl6o0xFCyq_oQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:6060/user",
+							"host": [
+								"localhost"
+							],
+							"port": "6060",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User (Public)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"maria@email.com\",\n    \"name\": \"Maria\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:6060/user",
+							"host": [
+								"localhost"
+							],
+							"port": "6060",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Find Post By Id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6061/posts/:postId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6061",
+							"path": [
+								"posts",
+								":postId"
+							],
+							"variable": [
+								{
+									"key": "postId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Posts",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6061/posts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6061",
+							"path": [
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQjUzI1NiI6IjhFdU84S0djbnFnaGxGcHdhbUlybHpLRXhEcHFKeGpHVkRNNzByUFhydVkiLCJraWQiOiJhd2Jsb2ciLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsImF1ZCI6ImF3YmxvZyIsIm5iZiI6MTY1MjgxODk0NSwidXNlcl9pZCI6IjIiLCJzY29wZSI6WyJteXVzZXI6cmVhZCIsInBvc3RzOndyaXRlIiwibXl1c2VyOndyaXRlIl0sImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdDo4MDgyIiwidXNlcl9mdWxsbmFtZSI6Ikpvw6NvIGRhIFNpbHZhIiwiZXhwIjoxNjUyODE5ODQ1LCJpYXQiOjE2NTI4MTg5NDUsImF1dGhvcml0aWVzIjpbIlJPTEVfQ0xJRU5UIl19.YVQrRcWvxhC4VFbx9p3Xr8e15XKlzP8gV-uhdPZqMGMTLJpZ8tnXU5krKx-if_TwiTpg9SlNLXSxOOOKP58oDyxbL8_1mSqxB1vGuZJtTkDScNuwAY87qnHx05tkVMp9MuiGCbFYe7eziG7VA-x_XyBcff5K21Zjhp_JroC1Z28Sq_M1arpQ1k2btjipnoYW2J-MVg8ri1uth4kjoVK1TI4i_mjfrYtJpW0s9tWdj7LrLajPSh_xPltQq5VzZTMvJZZkUgnWwFf9S3rbca-krrmkxI53u1BzcgVWc96LXlFKX4aBhKdCau5J14Vvj29JvVMXelw63w56jXSsUULr8w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Olá mundo\",\n    \"content\": \"ABC\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6061/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6061",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Auth with Client Credentials - AWUSER",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "654321",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "gui-auth",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "users:read",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:6062/oauth2/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6062",
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth with Auth Code - AWBLOG",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "654321",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "gui-ac-auth",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "WBNaPwopE09pVfYJU8N5asKL41pLVm7by4LLrr32elaOLM4-fadDejRSlzEtRlTRp3tcIw-m4Nuw3IeEUSnn77YWdt-MLdvo_cQSdwBA7qDBEPB6kC4oKsiIJmCmgbLr",
+									"type": "text"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "https://oidcdebugger.com/debug",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:6062/oauth2/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6062",
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth with Refresh Token - AWBLOG",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "awblog",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "text"
+								},
+								{
+									"key": "refresh_token",
+									"value": "ptI9ZGLuYvJA1jGXng66-tMA0wuAQOzuZMjkky254DEjgXtzkwijPJByz2FS051PPJNLAPAjSGJqjDs0_w7YYTiGilpsIfeilmhBVr-vLsS1OMSP_3Wa1vNs0LeowfyB",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:6062/oauth2/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6062",
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth introspect",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:6062/oauth2/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "http://localhost:6062/oauth2/authorize",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "myuser:read myuser:write posts:write",
+									"type": "string"
+								},
+								{
+									"key": "challengeAlgorithm",
+									"value": "S256",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "654321",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "gui-ac-auth",
+									"type": "string"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "https://oauth.pstmn.io/v1/callback",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code_with_pkce",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Gui-auth",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQjUzI1NiI6Ing4d2EwemFiY1luVUNOWlFOZVhfRjJjalI4eXd0UUpfSVRkcXBqTjFUSVEiLCJraWQiOiJndWktYXV0aCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkBlbWFpbC5jb20iLCJhdWQiOiJndWktYWMtYXV0aCIsIm5iZiI6MTY5MzU2OTU3OSwidXNlcl9pZCI6IjEiLCJzY29wZSI6WyJteXVzZXI6cmVhZCIsInBvc3RzOndyaXRlIiwibXl1c2VyOndyaXRlIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NjA2MiIsInVzZXJfZnVsbG5hbWUiOiJBbGV4IFNpbHZhIiwiZXhwIjoxNjkzNTczMTc5LCJpYXQiOjE2OTM1Njk1NzksImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXX0.wL6ehEMiD5RCVaDEvERf_lVqkOMG1mIFFLDrNPE4vJX01Zmc9MrhJU09vNwOjnhSFGlgxZwjTBZR9Sz22b1n5uLiSKQLboZakx4jjFI1T5shC6ChqZJwCSCX0wvLMk-qdRZk9byq_mqfizwtF_ACYNie7rB4FbiIcIQaZEU7X6qXhYg219AkrMnyKWgf4grBqtFJ-Vp6IXsi3yZTJlGMigePmZ0B9eifBicYDheX5-pdFUu4DgJ9IomX0hKZMtesnB9Qt7pm26rcrdC9xLGQgiucyQ7MgSo552KDNa92bASjwbTSNWcY3ewwtHM26ESOXAwN81nihptuLsnIwQtiVQ",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:6062/oauth2/introspect",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6062",
+							"path": [
+								"oauth2",
+								"introspect"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth revoke",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "awblog",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "token",
+									"value": "ptI9ZGLuYvJA1jGXng66-tMA0wuAQOzuZMjkky254DEjgXtzkwijPJByz2FS051PPJNLAPAjSGJqjDs0_w7YYTiGilpsIfeilmhBVr-vLsS1OMSP_3Wa1vNs0LeowfyB",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:6062/oauth2/revoke",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6062",
+							"path": [
+								"oauth2",
+								"revoke"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth JWKS",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6062/oauth2/jwks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6062",
+							"path": [
+								"oauth2",
+								"jwks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request Auth Code (Navegador)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "654321",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "gui-ac-auth",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6062/oauth2/authorize?response_type=code&client_id=gui-ac-auth&state=abc&redirect_uri=https://oidcdebugger.com/debug&scope=myuser:read myuser:write posts:write",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6062",
+							"path": [
+								"oauth2",
+								"authorize"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "code"
+								},
+								{
+									"key": "client_id",
+									"value": "gui-ac-auth"
+								},
+								{
+									"key": "state",
+									"value": "abc"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "https://oidcdebugger.com/debug"
+								},
+								{
+									"key": "scope",
+									"value": "myuser:read myuser:write posts:write"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/post?createDatabaseIfNotExist=true&serverTimezone=UTC
+    password:
+  jpa:
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: update
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:6062
+          jwk-set-uri: http://localhost:6062/oauth2/jwks
+      client:
+        registration:
+          gui-client:
+            provider: gui-att-auth
+            client-id: gui-auth
+            client-secret: 654321
+            authorization-grant-type: client_credentials
+            scope: users:read
+            client-name: gui-client
+        provider:
+          gui-att-auth:
+            issuer-uri: http://localhost:6062
+            jwk-set-uri: http://localhost:6062/oauth2/jwks
+
+server:
+  port: 6061
+  
+gui:
+  user-api:
+    url: 'http://localhost:6060'
+    encoded-credentials: 'YWRtaW5AZW1haWwuY29tOmFkbWlu'
+
+
+
