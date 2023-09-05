@@ -47,11 +47,14 @@ public class UserRequest {
         this.type = type;
     }
 
-    public UserEntity toEntity() {
+    public UserEntity toEntity() {    
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encryptedPassword = passwordEncoder.encode(this.password);
+
         return new UserEntity(
                 this.name,
                 this.email,
-                this.password,
+                encryptedPassword,
                 this.type
         );
     }
